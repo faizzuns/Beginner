@@ -4,11 +4,14 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class HasilActivity extends AppCompatActivity {
 
     TextView txtHasil;
+    RadioGroup radioGroup1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,9 +24,13 @@ public class HasilActivity extends AppCompatActivity {
         Intent intent = getIntent();
 
         String content = intent.getStringExtra("hasilPertandingan");
+        int x = 0;
 
-        txtHasil.setText(content);
-
+        if (content.equals("seri")){
+            txtHasil.setText("Pertandingan Seri");
+        }else{
+            txtHasil.setText("The Winner is " + content);
+        }
     }
 
     @Override

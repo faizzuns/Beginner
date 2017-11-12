@@ -100,7 +100,6 @@ public class ScoreboardActivity extends AppCompatActivity {
                 finish();
             }
         });
-
     }
 
     @Override

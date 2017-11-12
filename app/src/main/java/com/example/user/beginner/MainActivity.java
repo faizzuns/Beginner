@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().setTitle("Input Team");
+        //getSupportActionBar().setSubtitle("My apps");
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 
         btnGo = (Button)findViewById(R.id.btn_go);
