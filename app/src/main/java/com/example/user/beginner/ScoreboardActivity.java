@@ -40,9 +40,10 @@ public class ScoreboardActivity extends AppCompatActivity {
         btnThreePointTim2 = (Button)findViewById(R.id.three_point_tim_2);
         btnSelesai = (Button)findViewById(R.id.btn_selesai);
 
-        Intent intent = getIntent();
-        final String tim1 = intent.getStringExtra("tim1");
-        final String tim2 = intent.getStringExtra("tim2");
+
+        Intent intentPendapatan = getIntent();
+        final String tim1 = intentPendapatan.getStringExtra("tim1");
+        final String tim2 = intentPendapatan.getStringExtra("tim2");
 
         //setting nama tim
         namaTim1.setText(tim1);
@@ -52,7 +53,7 @@ public class ScoreboardActivity extends AppCompatActivity {
         btnTwoPointTim1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                score1 = score1 +2;
+                score1 = score1 + 2;
                 scoreTim1.setText(String.valueOf(score1));
             }
         });
@@ -63,7 +64,6 @@ public class ScoreboardActivity extends AppCompatActivity {
                 scoreTim1.setText(String.valueOf(score1));
             }
         });
-
         //setting tim 2
         btnTwoPointTim2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,11 +84,18 @@ public class ScoreboardActivity extends AppCompatActivity {
         btnSelesai.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                String hasil;
+                if (score1 > score2){
+                    hasil = tim1;
+                }else if (score1 < score2){
+                    hasil = tim2;
+                }else{
+                    hasil = "seri";
+                }
+
                 Intent intent = new Intent(getApplicationContext(), HasilActivity.class);
-                intent.putExtra("score1",score1);
-                intent.putExtra("score2",score2);
-                intent.putExtra("namaTim1",tim1);
-                intent.putExtra("namaTim2",tim2);
+                intent.putExtra("hasilPertandingan",hasil);
                 startActivity(intent);
                 finish();
             }
@@ -98,11 +105,9 @@ public class ScoreboardActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
-        if (item.getItemId()== android.R.id.home){
+        if (item.getItemId() == android.R.id.home){
             finish();
         }
-
         return super.onOptionsItemSelected(item);
     }
 }

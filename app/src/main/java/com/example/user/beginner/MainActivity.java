@@ -14,56 +14,28 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText edtTim1,edtTim2;
+    EditText edtTim1,
+            edtTim2;
+    Button btnGo;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-        Button btnGo = (Button)findViewById(R.id.btn_go);
-
-        btnGo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                //pindah ke activity scoreboard
-                Intent intent = new Intent(getApplicationContext(), ScoreboardActivity.class);
-                startActivity(intent);
-
-            }
-        });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+
+        btnGo = (Button)findViewById(R.id.btn_go);
 
         edtTim1 = (EditText)findViewById(R.id.edt_tim_1);
         edtTim2 = (EditText)findViewById(R.id.edt_tim_2);
+
+
         btnGo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (TextUtils.isEmpty(edtTim1.getText())||TextUtils.isEmpty(edtTim2.getText())){
+
+                if (TextUtils.isEmpty(edtTim1.getText()) || TextUtils.isEmpty(edtTim2.getText())){
                     Toast.makeText(getApplicationContext(), "Nama Tim belum terisi", Toast.LENGTH_SHORT).show();
                 }else{
                     String tim1 = edtTim1.getText().toString();

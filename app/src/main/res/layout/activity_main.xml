@@ -13,11 +13,14 @@
         android:text="Tim 1"
         android:textSize="20sp"
         android:textColor="@android:color/black"/>
+
     <EditText
+        android:id="@+id/edt_tim_1"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:hint="Nama Tim"
-        android:id="@+id/edt_tim_1"/>
+        android:inputType="text"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -28,12 +31,15 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:id="@+id/edt_tim_2"
-        android:hint="Nama Tim"/>
+        android:hint="Nama Tim"
+        android:inputType="text"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Go!"
         android:id="@+id/btn_go"/>
+
+
 
 
 

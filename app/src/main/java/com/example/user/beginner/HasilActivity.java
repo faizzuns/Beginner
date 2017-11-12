@@ -19,20 +19,8 @@ public class HasilActivity extends AppCompatActivity {
         txtHasil = (TextView)findViewById(R.id.txt_hasil);
 
         Intent intent = getIntent();
-        int score1 = intent.getIntExtra("score1",0);
-        int score2 = intent.getIntExtra("score2",0);
-        String namaTim1 = intent.getStringExtra("namaTim1");
-        String namaTim2 = intent.getStringExtra("namaTim2");
 
-        String content;
-
-        if (score1 > score2){
-            content = "THE WINNER IS "+namaTim1;
-        }else if (score2>score1){
-            content = "THE WINNER IS "+namaTim2;
-        }else{
-            content = "DRAW";
-        }
+        String content = intent.getStringExtra("hasilPertandingan");
 
         txtHasil.setText(content);
 
